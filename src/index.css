@@ -1,5 +1,6 @@
 .main {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url('./assets/cat.jpg');
@@ -7,6 +8,13 @@
   background-position: center;   
   background-repeat: no-repeat;  
   min-height: 100vh;
+}
+
+.main h2{
+  color: white;
+  padding: 30px;
+  background-color:rosybrown;
+  border-radius: 12px;
 }
 
 
