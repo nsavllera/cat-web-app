@@ -63,6 +63,7 @@ function App() {
             </div>
           )}
         </div>
+        <h2>Swipe LEFT to DISLIKE & RIGHT to LIKE</h2>
       </main>
       <Footer />
     </>
