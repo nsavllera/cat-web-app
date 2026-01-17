@@ -43,7 +43,6 @@ function App() {
   return (
     <>
       <Header />
-
       <main className="main">
         <div className="card-stack">
           {index < TOTAL_CATS ? (
@@ -65,12 +64,9 @@ function App() {
           )}
         </div>
       </main>
-
       <Footer />
     </>
   );
 }
-
-
 
 export default App;
