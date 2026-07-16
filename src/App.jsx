@@ -49,7 +49,7 @@ function App() {
               <img src={catsCollage} alt="" className="area-image" />
 
               <h1 className="poster-title area-title">
-                <span className="highlight highlight-purple">PAWS &amp;</span>
+                <span className="line1 highlight highlight-purple">PAWS &amp;</span>
                 <span className="line2 highlight highlight-lime">PREFERENCES</span>
               </h1>
 
