@@ -3,30 +3,147 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('./assets/cat.jpg');
-  background-size: cover;       
-  background-position: center;   
-  background-repeat: no-repeat;  
-  min-height: 100vh;
 }
 
-.main h2{
-  color: white;
-  padding: 30px;
-  background-color:rosybrown;
+.start-screen {
+  position: relative;
+  width: min(1100px, 94vw);
+  padding: 40px;
+  background-color: #f4f4ef;
+  background-image:
+    linear-gradient(#dce8ee 1px, transparent 1px),
+    linear-gradient(90deg, #dce8ee 1px, transparent 1px);
+  background-size: 32px 32px;
   border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+
+  /* --- the grid setup --- */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "image  title"
+    "tagline button";
+  align-items: center;
+  gap: 60px 40px;
+}
+
+.area-image  { grid-area: image;  justify-self: start; }
+.area-title  { grid-area: title;  justify-self: end;   }
+.area-tagline{ grid-area: tagline;justify-self: start; align-self: end;   }
+.area-button { grid-area: button; justify-self: end;  }
+
+
+.tagline {
+  position: relative;
+  z-index: 2;
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: #222;
+  max-width: 500px;
+}
+
+.area-image {
+  width: 320px;
+  object-fit: contain;
+}
+
+.poster-title {
+  position: relative;
+  text-align: end;
+  z-index: 2;
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 50px 0 2px;
+}
+
+.poster-title .line1,
+.poster-title .line2 {
+  display: inline-block;
+}
+
+.poster-title .line1{
+  margin-right: 80px;
+  transform: rotate(-2deg);
+}
+
+.poster-title .line2 {
+  display: block;
+  margin-top: 2px;
+  transform: rotate(-2deg);
+}
+
+.highlight {
+  color: #111;
+  padding: 4px 14px;
+  display: inline-block;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+}
+
+.highlight-purple {
+  background: #b98ee8;
+  transform: rotate(-2deg);
+}
+
+.highlight-lime {
+  background: #d4ff2b;
+  transform: rotate(1deg);
+}
+
+.start-btn{
+  margin-bottom: 25px;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 999px;
+  background-color: pink;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 640px) {
+  .start-screen {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "image"
+      "title"
+      "tagline"
+      "button";
+    gap: 24px;
+    text-align: center;
+  }
+
+  .area-image,
+  .area-title,
+  .area-tagline,
+  .area-button {
+    justify-self: center;
+  }
+
+  .poster-title {
+    font-size: clamp(28px, 9vw, 44px);
+  }
+
 }
 
 
 .header {
   background-color:rgb(94, 53, 59);
-  border-radius: 12px;
   text-align: center;
   padding: 20px;
 }
 
 .header h1 {
   color: rgb(253, 254, 254);
+  font-size: 25px;
 }
 
 .footer {
@@ -49,6 +166,36 @@
 
 .refresh-btn:hover {
   background-color: #ff9eb5;
+}
+
+.card-screen {
+  position: relative;
+  width: min(1100px, 94vw);
+  padding: 40px;
+  background-color: #f4f4ef;
+  background-image:
+    linear-gradient(#4d819b 1px, transparent 0.5px),
+    linear-gradient(90deg, #54919b 1px, transparent 0.5px);
+  background-size: 32px 32px;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-title{
+  font-family: "Chewy", system-ui;
+  color: #b1489f;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 30px;
+  letter-spacing: 8px;
+  font-style: normal;
+  text-align: center;
+  padding: 35px 0px;
+
 }
 
 .card-stack {
@@ -83,7 +230,7 @@
 .summary {
   width: 320px;
   position: relative;
-  margin-top: 120px;
+  margin-top: 30px;
   padding: 24px;
   background: white;
   border-radius: 20px;
@@ -92,10 +239,19 @@
 }
 
 .summary h2 {
+  font-family: "Chewy", system-ui;
+  color: #d35400;
+  font-weight: 200;
+  letter-spacing: 3px;
+  font-size: 20px;
   margin-bottom: 16px;
 }
 
 .summary p {
+  font-family: "Chewy", system-ui;
+  color: #186ba7;
+  font-weight: 200;
+  letter-spacing: 1px;
   font-size: 18px;
   margin: 8px 0;
 }
