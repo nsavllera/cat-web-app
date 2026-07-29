@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Catscard from './components/Catscard';
 import catsCollage from './assets/meow.png';
 
-const TOTAL_CATS = 10;
+const TOTAL_CATS = 10; //set the number of cat images
 
 function App() {
   const [cats, setCats] = useState([]);
@@ -16,7 +16,7 @@ function App() {
   const generateCats = () =>
     Array.from({ length: TOTAL_CATS }, (_, i) =>
       `https://cataas.com/cat?width=400&height=400&t=${Date.now()}-${i}`
-    );
+    ); //API setup
 
   const handleStart = () => {
     setCats(generateCats());

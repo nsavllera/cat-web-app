@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useState } from "react";
 
-const SWIPE_THRESHOLD = 120;
+const SWIPE_THRESHOLD = 120; //how many pixels user must drag before it counts as swipe
 
 function Catscard({ cataasUrl, onLike, onDislike }) {
   const x = useMotionValue(0);
@@ -18,9 +18,9 @@ function Catscard({ cataasUrl, onLike, onDislike }) {
     <motion.img
       src={cataasUrl}
       className="card"
-      drag="x"
+      drag="x" //drag horizontal axis only
       dragElastic={0.6}
-      dragMomentum={false}
+      dragMomentum={false} 
       style={{
         x,
         rotate,
@@ -29,10 +29,10 @@ function Catscard({ cataasUrl, onLike, onDislike }) {
       }}
       onDragEnd={(_, info) => {
         if (info.offset.x > SWIPE_THRESHOLD) {
-          setExitX(1000);
+          setExitX(1000); //swipe to right side
           onLike();
         } else if (info.offset.x < -SWIPE_THRESHOLD) {
-          setExitX(-1000);
+          setExitX(-1000); //swipe to left side
           onDislike();
         }
       }}
